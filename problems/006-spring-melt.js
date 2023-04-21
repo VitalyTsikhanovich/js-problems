@@ -18,7 +18,20 @@
  * @returns {number}
  */
 function getSpringMeltStreak(temperature) {
-    return undefined;
+    let count = 0;
+    let max = 0;
+
+    temperature.forEach((e, i, temperature) => {
+        if (e > 0) {
+            count++;
+        } else {
+            count = 0;
+        }
+        if (count > max) {
+            max = count;
+        }
+    });
+    return max;
 }
 
 module.exports = getSpringMeltStreak;
