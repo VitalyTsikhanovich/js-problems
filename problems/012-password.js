@@ -18,7 +18,12 @@
  * @returns {boolean}
  */
 function validatePassword(password) {
-    return undefined;
+    return (
+        /[A-Z]/.test(password) &&
+        /[a-z]/.test(password) &&
+        /[0-9]/.test(password) &&
+        password.length >= 7
+    );
 }
 
 module.exports = validatePassword;
