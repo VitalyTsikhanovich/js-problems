@@ -14,7 +14,10 @@
  * @returns {string}
  */
 function vacation(date) {
-    return undefined;
+    let reversDate = date.split(".").reverse().join('.')
+    let D = new Date(reversDate)
+    D.setDate(D.getDate() + 14);
+    return D.toLocaleDateString()
 }
 
 module.exports = vacation;

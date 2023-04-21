@@ -12,7 +12,26 @@
  * @returns {boolean}
  */
 function parentheses(value) {
-    return undefined;
+    let stack = [];
+    if (value === "") {
+        return false;
+    }
+
+    for (let i = 0; i < value.length; i++) {
+        if (value[i] === "(" || value[i] === "{" || value[i] === "<") {
+            stack.push(value[i]);
+        } else if (
+            (stack[stack.length - 1] === "(" && value[i] === ")") ||
+            (stack[stack.length - 1] === "{" && value[i] === "}") ||
+            (stack[stack.length - 1] === "<" && value[i] === ">")
+        ) {
+            stack.pop();
+        } else {
+            return false;
+        }
+    }
+
+    return stack.length === 0;
 }
 
 module.exports = parentheses;

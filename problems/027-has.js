@@ -13,7 +13,13 @@
  * @returns {boolean}
  */
 function has(path, object) {
-    return undefined;
+    for (let key of path) {
+        let result = object != null && hasOwnProperty.call(object, key);
+        if (!result) {
+            return false;
+        }
+    }
+    return true;
 }
 
 module.exports = has;
