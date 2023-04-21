@@ -14,7 +14,23 @@
  * @returns {boolean}
  */
 function checkTicket(number) {
-    return undefined;
+    const size = 3;
+    let arr1 = number
+        .split("")
+        .slice(0, size)
+        .reduce((a, b) => +a + +b);
+
+    let arr2 = number
+        .split("")
+        .slice(size)
+        .reduce((a, b) => +a + +b);
+    return arr1 === arr2
+
+    // if (arr1 === arr2) {
+    //     return true;
+    // } else {
+    //     return false;
+    // }
 }
 
 module.exports = checkTicket;
