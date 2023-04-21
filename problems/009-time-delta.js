@@ -17,7 +17,11 @@
  * @returns {number} разница между x и y в секундах
  */
 function getTimeDelta(x, y) {
-    return undefined;
+    let arr1= x.split(':')
+    let arr2= y.split(':')
+    let a = arr1[0]*3600 + arr1[1]*60 +arr1[2]*1
+    let b = arr2[0]*3600 + arr2[1]*60 + arr2[2]*1
+    return b-a
 }
 
 module.exports = getTimeDelta;
