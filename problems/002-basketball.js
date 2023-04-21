@@ -16,7 +16,35 @@
  * @returns {(number|undefined)}
  */
 function getWinner(points) {
-    return undefined;
+    let arr = [];
+    // let team1=0
+    // let team2=0
+    for (let i = 0; i < points.length; i++) {
+        arr.push(points[i].split("-"));
+    }
+    //  arr.flat()
+    // for(let j= 0; j<arr.length; j++){
+    //     team1 += arr[j][0]
+    //     team2 += arr[j][1]
+    // }
+    // return team2
+
+    let team1 = arr
+        .flat()
+        .filter((e, i) => i % 2 === 0)
+        .reduce((a, b) => Number(a) + Number(b));
+
+    let team2 = arr
+        .flat()
+        .filter((e, i) => i % 2 !== 0)
+        .reduce((a, b) => Number(a) + Number(b));
+    if (team1 > team2) {
+        return 1;
+    } else if (team1 === team2) {
+        return undefined;
+    } else {
+        return 2;
+    }
 }
 
 module.exports = getWinner;
