@@ -14,7 +14,23 @@
  * @returns {string}
  */
 function hexToRgb(color) {
-    return undefined;
+    let hex = color.slice(color.startsWith("#") ? 1 : 0);
+    // let hex = color.slice(1);
+    if (hex.length === 3) {
+        hex = hex
+            .split("")
+            .map((e) => e + e)
+            .join("");
+    }
+
+    let arr = hex.slice(0, 2);
+    let arr2 = hex.slice(2, 4);
+    let arr3 = hex.slice(4, 6);
+
+    return `rgb(${parseInt(arr, 16)}, ${parseInt(arr2, 16)}, ${parseInt(
+        arr3,
+        16
+    )})`;
 }
 
 module.exports = hexToRgb;
