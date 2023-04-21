@@ -13,7 +13,17 @@
  * @returns {number[]}
  */
 function union(a, b) {
-    return undefined;
+    // let arr = [];
+    // for (let i = 0; i < a.length; i++) {
+    //     for (let j = 0; j < b.length; j++) {
+    //         if (a[i] === b[j]) {
+    //             arr.push(a[i]);
+    //             return arr
+    //         }
+    //     }
+    // }
+    let arr = a.filter((e) => b.includes(e));
+    return arr.filter((e, i) => arr.indexOf(e) === i).sort((a, b) => a - b);
 }
 
 module.exports = union;
