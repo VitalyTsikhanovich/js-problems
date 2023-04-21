@@ -10,7 +10,21 @@
  * @returns {string}
  */
 function rle(value) {
-    return undefined;
+    let arr = []
+    let count = 1
+    for (let i = 1; i <= value.length; i++) {
+        if (value[i] === value[i - 1]) {
+            count++
+        } else {
+            if (count > 1) {
+                arr.push(count+ value[i-1])
+                count=1
+            }else {
+                arr.push(value[i-1])
+            }
+        }
+    }
+    return arr.join('')
 }
 
 module.exports = rle;

@@ -17,7 +17,18 @@
  * @returns {number}
  */
 function fibonacci(n) {
-    return undefined;
+    if (n<=0){
+        return 0
+    }
+    let f1 = 0
+    let f2 = 1
+    let cf = 1
+    for (let i = 1; i < n; i++) {
+        cf = f1 + f2;
+        f1 = f2;
+        f2 = cf
+    }
+    return cf;
 }
 
 module.exports = fibonacci;

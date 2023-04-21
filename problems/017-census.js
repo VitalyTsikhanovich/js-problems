@@ -13,7 +13,19 @@
  * @returns {undefined|number}
  */
 function census(list) {
-    return -1;
+    let count = 0;
+    let age = 0
+    list.forEach((e, i, list) => {
+        if (e.age > age && e.gender === "Male") {
+            age = e.age;
+            count++
+        }
+    });
+    if (count <= 0){
+        return undefined
+    }
+
+    return count
 }
 
 module.exports = census;
